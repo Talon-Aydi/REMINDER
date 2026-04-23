@@ -10,11 +10,10 @@
     </div>
 
     <div class="flex flex-col h-full w-full overflow-hidden p-5 space-y-3">
-        <livewire:activity-card 
-            title="A random task"
-            description="I don't know what I'm going to do"/>
-        <livewire:activity-card 
-            title="Date with Sylus"
-            description="Midnight fishing"/>
+        @foreach($activities as $activity)
+            <livewire:activity-card 
+            title="{{$activity->activity_title}}"
+            description="{{$activity->activity_description}}"/>
+        @endforeach
     </div>
  </div>
