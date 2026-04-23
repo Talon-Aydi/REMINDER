@@ -16,8 +16,8 @@ new class extends Component
 ?>
 
 
-   <div class="flex flex-row h-[5rem]">
-            <div class="w-[1rem] bg-blue-300 border-blue-300 rounded-l-sm overflow-hidden">
+   <div class="flex flex-row h-[5rem] jersey">
+            <div class="w-[10px] border bg-blue-300 border-black rounded-l-sm overflow-hidden">
             </div>
             <div class="flex flex-col w-full justify-end border-t border-b border-r rounded-r-sm">
                 <div class="flex flex-col px-2 mb-auto mt-auto">

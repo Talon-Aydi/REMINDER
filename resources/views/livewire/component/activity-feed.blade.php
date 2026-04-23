@@ -1,6 +1,6 @@
 <div class="w-screen h-screen flex flex-col justify-center">
- <div class="flex flex-col w-[20rem] h-[40rem] border bg-white m-auto rounded-sm">
-    <div class="flex flex-row justify-between p-5 border-b h-[5rem]">
+ <div class="flex flex-col w-[20rem] h-[40rem] border bg-white m-auto rounded-sm jersey">
+    <div class="flex flex-row justify-between p-5 border-b h-[4rem]">
         <span class="mt-auto mb-auto">
             Ativity feed
         </span>
