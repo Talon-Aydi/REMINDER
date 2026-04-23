@@ -8,8 +8,8 @@
     @livewireStyles
     @livewireScripts
 </head>
-<body>
-    <div class="bg-[#e18e96]">
+<body class="bg-[#e18e96]">
+    <div>
         {{ $slot }} <!-- Livewire components render here -->
     </div>
     @livewireScripts
