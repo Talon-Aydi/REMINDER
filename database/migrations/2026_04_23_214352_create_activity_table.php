@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('activity_title');
             $table->string('activity_description');
             $table->boolean('activity_completion')->default(false);
+            $table->dateTime('activity_deadline');
             $table->foreignId('activity_user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });

@@ -13,6 +13,7 @@ class Activity extends Model
         'activity_title',
         'activity_description',
         'activity_completion',
+        'activity_deadline',
         'activity_user_id'
     ];
 }
