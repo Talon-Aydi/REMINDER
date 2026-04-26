@@ -37,5 +37,6 @@ To run the project\
 - Count down to activity dead-line
 - Adding color to activity
 - Pop-up reminder of scheduled activity
-
+  
+**Demo**
 ![Demo](assets/demo/activity.gif)
