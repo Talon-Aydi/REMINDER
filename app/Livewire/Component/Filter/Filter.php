@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Component\Filter;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\File;
