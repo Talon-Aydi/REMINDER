@@ -5,7 +5,7 @@
                 <input type="text" wire:model="form.activity_title" placeholder="Activity Title"
                     class="border-none outline-none text-xl">
 
-                <span wire:click="closeModal" class="cursor-pointer">X</span>
+                <span wire:click="$dispatch('close-activity-modal')" class="cursor-pointer">X</span>
             </x-slot:header>
 
             <x-slot:content>
@@ -18,7 +18,7 @@
             </x-slot:content>
 
             <x-slot:footer>
-                <button type="submit" class="pr-3" wire:click="save">
+                <button type="submit" class="pr-3">
                     {{ $isEdit ? 'Update' : 'Create' }}
                 </button>
             </x-slot:footer>

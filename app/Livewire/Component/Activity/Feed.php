@@ -10,6 +10,7 @@ use Livewire\Attributes\On;
 class Feed extends Component {
     public $activities;
     public $showModal = false;
+    public $activityEdit; 
 
     public function mount()
     {   
@@ -22,10 +23,15 @@ class Feed extends Component {
     }
 
     #[On('open-activity-modal')]
-    public function openModal()
-    {   
+    public function openModal($activityId = null)
+    {
+        $this->activityEdit = $activityId
+            ? Activity::find($activityId)
+            : null;
+
         $this->showModal = true;
     }
+
 
     #[On('close-activity-modal')]
     public function closeModal()

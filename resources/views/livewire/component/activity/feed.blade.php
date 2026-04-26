@@ -1,6 +1,6 @@
 <div class="jersey">
     <div wire:show="showModal">
-        <livewire:component.activity.modal />
+        <livewire:component.activity.modal :activity="$activityEdit" />
     </div>
 
     <div class="w-screen h-screen flex flex-col justify-center">
@@ -15,7 +15,7 @@
 
             <div class="flex flex-col h-full w-full overflow-hidden p-5 space-y-3">
                 @foreach ($activities as $activity)
-                    <livewire:component.activity.card :activity="$activity" />
+                    <livewire:component.activity.card :activity="$activity" :key="$activity->id" />
                 @endforeach
             </div>
         </div>

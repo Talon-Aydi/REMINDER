@@ -4,23 +4,17 @@ namespace App\Livewire\Component\Activity;
 
 use Livewire\Component;
 use App\Models\Activity;
-use Illuminate\Support\Facades\Log;
-use App\Livewire\Forms\ActivityForm; 
+use App\Livewire\Forms\ActivityForm;
 
 class Modal extends Component
 {
     public ActivityForm $form;
     public bool $isEdit = false;
 
-    public function mount(Activity $activity)
+    public function mount(Activity $activity = null)
     {
-        if ($activity->exists) {
-            $this->form->fill([
-                'activity_title' => $activity->activity_title,
-                'activity_description' => $activity->activity_description,
-                'activity_deadline' => $activity->activity_deadline,
-            ]);
-
+        if ($activity && $activity->exists) {
+            $this->form->fill($activity->toArray());
             $this->isEdit = true;
         }
     }
