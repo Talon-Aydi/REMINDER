@@ -2,16 +2,24 @@
 
 use Livewire\Component;
 use App\Models\Activity;
+use Carbon\Carbon;
 
 new class extends Component {
-    public $activityId;
-    public $title;
-    public $description;
+    public $activity = Activity::class;
+    public $activity_countdown;
 
-    public function mount($title = null, $description = null)
+    public function mount($activity = null)
     {
-        $this->title = $title;
-        $this->description = $description;
+        $this->activity = $activity;
+        $this->calculateCountdown();
+    }
+
+    public function calculateCountdown()
+    {
+        $today = Carbon::today();
+        $deadline = Carbon::parse($this->activity->activity_deadline)->startOfDay();
+
+        $this->activity_countdown = $today->diffInDays($deadline, false);
     }
 
     public function delete()
@@ -28,18 +36,19 @@ new class extends Component {
 <div class="flex flex-row h-[5rem] jersey">
     <div class="w-[10px] border bg-blue-300 border-black rounded-l-sm overflow-hidden">
     </div>
-    <div class="flex flex-col w-full justify-end border-t border-b border-r rounded-r-sm">
+    <div wire:click='update'
+        class="flex flex-col hover:bg-gray-200 hover:cursor-grab w-full justify-end border-t border-b border-r rounded-r-sm">
         <div class="flex flex-col px-2 mb-auto mt-auto">
             <span>
-                {{ $title }}
+                {{ $activity->activity_title }}
             </span>
             <span class="text-[12px]">
-                {{ $description }}
+                {{ $activity->activity_description }}
             </span>
         </div>
-        <div class="flex flex-row px-2 text-[12px] h-[1.5rem] bg-gray-100 w-full border-t">
+        <div class="flex flex-row px-2 text-[12px] h-[1.5rem] w-full border-t">
             <span class="flex-2 mt-auto mb-auto">
-                x days left
+                {{ $activity_countdown }} days left
             </span>
             <span class="flex-1 px-2 text-center mt-auto border-r border-l mb-auto">
                 Resume

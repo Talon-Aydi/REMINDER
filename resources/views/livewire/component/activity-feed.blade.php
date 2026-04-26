@@ -15,8 +15,7 @@
 
             <div class="flex flex-col h-full w-full overflow-hidden p-5 space-y-3">
                 @foreach ($activities as $activity)
-                    <livewire:activity-card activityId='{{ $activity->activity_id }}'
-                        title="{{ $activity->activity_title }}" description="{{ $activity->activity_description }}" />
+                    <livewire:activity.card :activity='$activity' />
                 @endforeach
             </div>
         </div>
