@@ -24,7 +24,7 @@ new class extends Component {
 
     public function update()
     {
-        $this->dispatch('open-activity-modal', $this->activity->id);
+        $this->dispatch('open-activity-modal', $this->activity->activity_id);
     }
 
     public function delete()

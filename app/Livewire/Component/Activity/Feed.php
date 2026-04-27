@@ -19,17 +19,12 @@ class Feed extends Component {
 
     public function render()
     {
-        return view('livewire.component.activity.feed')->layout('base');
+        return view('livewire.component.activity.feed');
     }
 
-    #[On('open-activity-modal')]
-    public function openModal($activityId = null)
-    {
-        $this->activityEdit = $activityId
-            ? Activity::find($activityId)
-            : null;
-
-        $this->showModal = true;
+    public function openModal()
+    {   
+        $this->dispatch('');
     }
 
 

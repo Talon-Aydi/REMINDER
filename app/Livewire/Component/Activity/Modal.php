@@ -5,18 +5,33 @@ namespace App\Livewire\Component\Activity;
 use Livewire\Component;
 use App\Models\Activity;
 use App\Livewire\Forms\ActivityForm;
+use Illuminate\Support\Facades\Log;
 
 class Modal extends Component
 {
     public ActivityForm $form;
     public bool $isEdit = false;
+    public $activity; 
+    public $show = false; 
 
-    public function mount(Activity $activity = null)
+    #[On('open-activity-modal')]
+    public function open() 
     {
-        if ($activity && $activity->exists) {
-            $this->form->fill($activity->toArray());
+        $this->reset(['isEdit', 'activity']);
+        $this->form->reset();
+
+        if ($activityId) {
+            $this->activity = Activity::find($activityId);
+            $this->form->setActivity($this->activity);
             $this->isEdit = true;
         }
+        $this->show = true; 
+    }
+
+    #[On('close-activity-modal')]
+    public function close($activityId = null)
+    {
+        $this->show = false; 
     }
 
     public function save()

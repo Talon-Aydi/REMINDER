@@ -22,6 +22,7 @@ class ActivityForm extends Form
 
     public function setActivity(Activity $activity)
     {
+        Log::info("ahhhhhhh");
         $this->activity = $activity;
 
         $this->activity_user_id = 1; 

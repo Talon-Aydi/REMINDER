@@ -1,27 +1,17 @@
 <?php
 
-namespace App\Livewire\Component\Filter;
+namespace App\Livewire\Component\SearchBar;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
-class Filter extends Component
+class SearchBar extends Component
 {
-    public $allNames = [];
-    public $nameList = [];
-    public $namefield; 
-
-    public function loadList()
-    {
-        $path = storage_path('data/names.json');
-                if (!file_exists($path)) {
-                    throw new \Exception("File not found: {$path}");
-                }
-
-        $data = File::json($path);
-        return $data;
-    }
+    public array $allNames = [];
+    public array $nameList = [];
+    public string $namefield = '';
+    public bool $showResults = false;
 
     public function mount()
     {
@@ -45,11 +35,24 @@ class Filter extends Component
             ->filter(fn ($name) => Str::contains(Str::lower($name), $search))
             ->values()
             ->toArray();
+
+        $this->showResults = strlen($this->namefield) > 0 && count($this->nameList) > 0;
+    }
+
+    public function selectName($name)
+    {
+        $this->namefield = $name;
+        $this->showResults = false;
+    }
+
+    public function hideResults()
+    {
+        // Delay hiding so click events still register
+        $this->dispatch('hide-after-click');
     }
 
     public function render()
     {
-        return view('livewire.filter')
-        ->layout('base');
+        return view('livewire.component.search-bar');
     }
 }

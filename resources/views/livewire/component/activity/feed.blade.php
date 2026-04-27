@@ -1,7 +1,5 @@
 <div class="jersey">
-    <div wire:show="showModal">
-        <livewire:component.activity.modal :activity="$activityEdit" />
-    </div>
+    <livewire:component.activity.modal />
 
     <div class="w-screen h-screen flex flex-col justify-center">
         <div class="flex flex-col w-[20rem] h-[40rem] border bg-white m-auto rounded-sm">
