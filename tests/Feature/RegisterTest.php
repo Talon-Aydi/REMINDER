@@ -48,4 +48,37 @@ describe('Test UserForm', function () {
             ->call('save')
             ->assertHasErrors(['form.password' => 'confirmed']);
     });
+
+    it('generates errors if required fields omitted', function () {
+        // Arrange, Act & Assert
+        Livewire::test(TestRegisterComponent::class)
+            ->call('save')
+            ->assertHasErrors(['form.name' => 'required'])
+            ->assertHasErrors(['form.email' => 'required'])
+            ->assertHasErrors(['form.password' => 'required']);
+    });
+
+    it('generates errors if email is not unique', function () {
+        // Arrange, Act & Assert
+        Livewire::test(TestRegisterComponent::class)
+            ->set('form.name', 'John')
+            ->set('form.email', 'john@example.com')
+            ->set('form.password', 'eightletters')
+            ->set('form.password_confirmation', 'eightletters')
+            ->call('save')
+            ->assertHasNoErrors();
+
+        Livewire::test(TestRegisterComponent::class)
+            ->set('form.name', 'John')
+            ->set('form.email', 'john@example.com')
+            ->set('form.password', 'eightletters')
+            ->set('form.password_confirmation', 'eightletters')
+            ->call('save')
+            ->assertHasErrors(['form.email' => 'unique']);
+
+        $this->assertDatabaseCount('users', 1);
+        $this->assertDatabaseHas('users', [
+            'email' => 'john@example.com',
+        ]);
+    });
 });
