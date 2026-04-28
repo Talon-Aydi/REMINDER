@@ -29,23 +29,22 @@ new class extends Component {
             </span>
         </div>
         <div class="flex flex-col space-y-7 text-left p-10">
-            <input wire:model="form.name" class="border-b outline-none" placeholder="Name" type="text">
+            <livewire:form.input wire:model="form.name" placeholder='Name' />
             @error('form.name')
                 <span class="error">{{ $message }}</span>
             @enderror
 
-            <input wire:model="form.email" class="border-b outline-none" placeholder="Email" type="text">
+            <livewire:form.input wire:model="form.email" placeholder='E-mail' />
             @error('form.email')
                 <span class="error">{{ $message }}</span>
             @enderror
 
-            <input wire:model="form.password" class="border-b outline-none" placeholder="Password" type="password">
+            <livewire:form.input wire:model="form.password" placeholder='Password' type='password' />
             @error('form.password')
                 <span class="error">{{ $message }}</span>
             @enderror
-
-            <input wire:model="form.password_confirmation" class="border-b outline-none" placeholder="Confirm password"
-                type="password">
+            <livewire:form.input wire:model="form.password_confirmation" placeholder='Confirm password'
+                type='password' />
             @error('form.password_confirmation')
                 <span class="error">{{ $message }}</span>
             @enderror
