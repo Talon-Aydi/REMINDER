@@ -3,9 +3,9 @@
 namespace App\Livewire\Forms\User;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
-use Illuminate\Support\Facades\Hash;
 
 class RegistrationForm extends Form
 {

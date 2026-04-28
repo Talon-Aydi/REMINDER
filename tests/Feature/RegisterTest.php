@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\Forms\UserForm;
+use App\Livewire\Forms\User\RegistrationForm;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Component;
 use Livewire\Livewire;
@@ -10,7 +10,7 @@ uses(RefreshDatabase::class);
 beforeAll(function () {
     class TestRegisterComponent extends Component
     {
-        public UserForm $form;
+        public RegistrationForm $form;
 
         public function save(): void
         {

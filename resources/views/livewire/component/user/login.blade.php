@@ -2,14 +2,25 @@
 
 use Livewire\Component;
 use App\Livewire\Forms\User\LoginForm;
+use Illuminate\Support\Facades\Auth;
 
 new class extends Component {
     public LoginForm $form;
 
     public function submit()
     {
-        Log::info($this->form);
-        $this->form->login();
+        $this->form->validate();
+
+        $credentials = [
+            'email' => $this->form->email,
+            'password' => $this->form->password,
+        ];
+
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('/activity');
+        }
+
+        $this->form->addError('password', 'Invalid credentials.');
     }
 };
 ?>
