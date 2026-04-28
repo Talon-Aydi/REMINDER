@@ -2,18 +2,20 @@
 
 namespace App\Livewire\Component\Activity;
 
-use Livewire\Component;
 use App\Models\Activity;
-use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\On;
+use Livewire\Component;
 
-class Feed extends Component {
+class Feed extends Component
+{
     public $activities;
+
     public $showModal = false;
-    public $activityEdit; 
+
+    public $activityEdit;
 
     public function mount()
-    {   
+    {
         $this->activities = Activity::all();
     }
 
@@ -23,10 +25,9 @@ class Feed extends Component {
     }
 
     public function openModal()
-    {   
+    {
         $this->dispatch('');
     }
-
 
     #[On('close-activity-modal')]
     public function closeModal()
@@ -39,5 +40,4 @@ class Feed extends Component {
     {
         $this->activities = Activity::all();
     }
-};
-?>
+}

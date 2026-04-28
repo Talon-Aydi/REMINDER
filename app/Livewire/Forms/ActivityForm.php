@@ -2,9 +2,9 @@
 
 namespace App\Livewire\Forms;
 
+use App\Models\Activity;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
-use App\Models\Activity;
 
 class ActivityForm extends Form
 {
@@ -22,10 +22,10 @@ class ActivityForm extends Form
 
     public function setActivity(Activity $activity)
     {
-        Log::info("ahhhhhhh");
+        Log::info('ahhhhhhh');
         $this->activity = $activity;
 
-        $this->activity_user_id = 1; 
+        $this->activity_user_id = 1;
         $this->activity_title = $activity->activity_title;
         $this->activity_description = $activity->activity_description;
         $this->activity_deadline = $activity->activity_deadline;

@@ -2,9 +2,9 @@
 
 namespace App\Livewire\Forms;
 
+use App\Models\User;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
-use App\Models\User;
 
 class UserForm extends Form
 {
@@ -23,16 +23,14 @@ class UserForm extends Form
         'password.confirmed' => 'Passwords must match.',
     ];
 
-
     public function save()
     {
         $validate = $this->validate();
 
         User::create([
-            'name' => $this-> name, 
-            'email' => $this->email, 
-            'password'=> $this->password
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => $this->password,
         ]);
     }
 }
-

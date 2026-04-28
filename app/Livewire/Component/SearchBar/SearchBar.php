@@ -2,22 +2,25 @@
 
 namespace App\Livewire\Component\SearchBar;
 
-use Livewire\Component;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Livewire\Component;
 
 class SearchBar extends Component
 {
     public array $allNames = [];
+
     public array $nameList = [];
+
     public string $namefield = '';
+
     public bool $showResults = false;
 
     public function mount()
     {
         $path = storage_path('data/names.json');
 
-        if (!file_exists($path)) {
+        if (! file_exists($path)) {
             throw new \Exception("File not found: {$path}");
         }
 
