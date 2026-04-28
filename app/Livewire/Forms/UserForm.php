@@ -14,8 +14,15 @@ class UserForm extends Form
     #[Validate('required|email|unique:users,email')]
     public $email;
 
-    #[Validate('required|string|min:8|max:20')]
+    #[Validate('required|string|min:8|max:20|confirmed')]
     public $password;
+
+    public $password_confirmation;
+
+    protected $messages = [
+        'password.confirmed' => 'Passwords must match.',
+    ];
+
 
     public function save()
     {

@@ -18,7 +18,7 @@ new class extends Component {
 };
 ?>
 <div
-    class="backdrop text-center p-10 flex flex-col space-y-3 border-2 border-[#d9d9d9] text-[#d9d9d9] shadow-2xl inset-shadow-2xl inset-shadow-black w-[25rem] m-auto rounded-xl">
+    class="backdrop text-center p-10 flex flex-col space-y-3 border-3 border-[#d9d9d9] text-[#d9d9d9] shadow-2xl inset-shadow-2xl inset-shadow-black w-[25rem] m-auto rounded-xl">
     <form wire:submit="save">
         <div class="flex flex-col">
             <span class="font-extrabold mt-10 text-[25px]">
@@ -39,12 +39,16 @@ new class extends Component {
                 <span class="error">{{ $message }}</span>
             @enderror
 
-            <input wire:model="form.password" class="border-b outline-none" placeholder="Password" type="text">
+            <input wire:model="form.password" class="border-b outline-none" placeholder="Password" type="password">
             @error('form.password')
                 <span class="error">{{ $message }}</span>
             @enderror
 
-            <input class="border-b outline-none" placeholder="Confirm password" type="text">
+            <input wire:model="form.password_confirmation" class="border-b outline-none" placeholder="Confirm password"
+                type="password">
+            @error('form.password_confirmation')
+                <span class="error">{{ $message }}</span>
+            @enderror
             <button type="submit" class="rounded-xl  h-12 border font-extrabold">Sign up</button>
         </div>
     </form>
