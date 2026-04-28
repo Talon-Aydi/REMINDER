@@ -52,9 +52,8 @@ To create the database tables\
 
 - Create a new user
 - Validating input
+- Test scripts
 
 **Future implementations:**
 
-- Live validation
 - Route to user page instead of activity
-- Test scripts
