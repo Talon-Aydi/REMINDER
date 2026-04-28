@@ -14,14 +14,16 @@ To create the database tables\
 
 **Current features that have been built into this application:**
 
-- A filter
-- An activity feed
+- Searchbar
+- Activity feed
+- Registration
 
-### Filter
+### Searchbar
 
 **Current features:**
 
 - Shows names matching to input
+  `NOTE: CURRENTLY RETRIEVED WITH JSON, WILL BE QUERY BASED IN THE FUTURE`
 
 **Demo**
 ![Demo](assets/demo/filter.gif)
@@ -43,3 +45,15 @@ To create the database tables\
 
 **Demo**
 ![Demo](assets/demo/activity.gif)
+
+### Registration
+
+**Current features:**
+
+- Create a new user
+- Validating input
+- Test scripts
+
+**Future implementations:**
+
+- Route to user page instead of activity

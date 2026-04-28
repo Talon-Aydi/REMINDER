@@ -1,10 +1,8 @@
 <?php
 
+use App\Livewire\Component\Activity\Feed;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Filter;
-use App\Livewire\Component\ActivityFeed;
 
 Route::view('/', 'welcome')->name('home');
-Route::get('/filter', Filter::class);
-Route::get('/activity', ActivityFeed::class);
-
+Route::get('/activity', Feed::class);
+Route::livewire('/register', 'component.user.register');
