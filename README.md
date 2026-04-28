@@ -7,6 +7,9 @@ This application was created to refresh my knowledge of Laravel and Livewire, fr
 To run the project\
 `composer run dev`
 
+To format the project\
+`composer run lint`
+
 To create the database tables\
 `php artisan migrate`
 

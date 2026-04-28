@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Livewire\Forms;
+namespace App\Livewire\Forms\User;
 
 use App\Models\User;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
+use Illuminate\Support\Facades\Hash;
 
-class UserForm extends Form
+class RegistrationForm extends Form
 {
     #[Validate('required|string|min:3|max:15')]
     public $name;
@@ -30,7 +31,7 @@ class UserForm extends Form
         User::create([
             'name' => $this->name,
             'email' => $this->email,
-            'password' => $this->password,
+            'password' => Hash::make($this->password),
         ]);
     }
 }
