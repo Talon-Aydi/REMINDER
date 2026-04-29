@@ -26,7 +26,7 @@ class Feed extends Component
 
     public function openModal()
     {
-        $this->dispatch('');
+        $this->dispatch('open-activity-modal');
     }
 
     #[On('close-activity-modal')]
