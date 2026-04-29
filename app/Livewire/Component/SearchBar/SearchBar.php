@@ -50,7 +50,6 @@ class SearchBar extends Component
 
     public function hideResults()
     {
-        // Delay hiding so click events still register
         $this->dispatch('hide-after-click');
     }
 
