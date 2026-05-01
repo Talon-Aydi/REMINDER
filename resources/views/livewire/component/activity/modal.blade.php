@@ -19,7 +19,7 @@
                         <span class="error">{{ $message }}</span>
                     @enderror
                 </div>
-                <div>
+                <div class="flex flex-col">
                     <label>Activity deadline:</label>
                     <input type="datetime-local" wire:model="form.activity_deadline" class="outline-none">
                     @error('form.activity_deadline')

@@ -20,9 +20,9 @@ beforeAll(function () {
             $this->form->validate();
 
             $credentials = [
-        'email'    => $this->form->email,
-        'password' => $this->form->password,
-    ];
+                'email' => $this->form->email,
+                'password' => $this->form->password,
+            ];
 
             if (Auth::attempt($credentials)) {
                 return redirect()->intended('/activity');

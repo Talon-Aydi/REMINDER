@@ -4,7 +4,6 @@ namespace App\Livewire\Component\Activity;
 
 use App\Livewire\Forms\ActivityForm;
 use App\Models\Activity;
-use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
@@ -42,13 +41,11 @@ class Modal extends Component
 
     public function save()
     {
-        
-        $this->form->validate();
-        Log::info($this->form->activity_deadline);
+        $data = $this->form->validate();
         if ($this->activity && $this->activity->exists) {
-            $this->form->update($this->activity);
+            $this->activity->update($data);
         } else {
-            $this->form->store();
+            Activity::create($data);
         }
 
         $this->dispatch('update-activity-feed');
