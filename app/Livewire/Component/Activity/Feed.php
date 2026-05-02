@@ -3,7 +3,6 @@
 namespace App\Livewire\Component\Activity;
 
 use App\Models\Activity;
-use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
@@ -12,13 +11,16 @@ class Feed extends Component
     public $showModal = false;
 
     public $activities;
+
     public $activity_countdown;
+
     public $activityEdit;
 
     #[On('update-activity-feed')]
     public function render()
     {
         $this->activities = Activity::latest()->get();
+
         return view('livewire.component.activity.feed');
     }
 
@@ -29,7 +31,7 @@ class Feed extends Component
     }
 
     public function update($activityId)
-    {   
+    {
         $activity = Activity::findOrFail($activityId);
         $this->dispatch('open-activity-modal', $activity->activity_id);
     }
