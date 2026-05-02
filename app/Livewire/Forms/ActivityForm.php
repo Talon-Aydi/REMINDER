@@ -10,6 +10,7 @@ class ActivityForm extends Form
 {
     public ?Activity $activity = null;
 
+    #[Validate('required')]
     public $activity_user_id = 1;
 
     #[Validate('required|min:5')]
@@ -18,31 +19,16 @@ class ActivityForm extends Form
     #[Validate('required|min:5')]
     public $activity_description = '';
 
+    #[Validate('required|date')]
     public $activity_deadline = '';
 
     public function setActivity(Activity $activity)
     {
-        Log::info('ahhhhhhh');
         $this->activity = $activity;
 
         $this->activity_user_id = 1;
         $this->activity_title = $activity->activity_title;
         $this->activity_description = $activity->activity_description;
         $this->activity_deadline = $activity->activity_deadline;
-    }
-
-    public function store()
-    {
-        $this->validate();
-
-        if ($this->activity && $this->activity->exists) {
-            $this->activity->update(
-                $this->only('activity_title', 'activity_description', 'activity_deadline')
-            );
-        } else {
-            Activity::create(
-                $this->only('activity_title', 'activity_description', 'activity_deadline', 'activity_user_id')
-            );
-        }
     }
 }

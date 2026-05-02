@@ -13,8 +13,10 @@
 </head>
 
 <body class="wallpaper">
-    <div class="flex flex-col min-h-screen min-w-screen">
+    <div class="flex flex-col min-h-screen min-w-screen relative">
+        <livewire:component.activity.modal />
         @livewire('component.search-bar')
+        
         {{ $slot }}
     </div>
 

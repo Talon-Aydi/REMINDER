@@ -1,11 +1,11 @@
 <?php
 
 use Livewire\Component;
-use App\Livewire\Forms\UserForm;
+use App\Livewire\Forms\User\RegistrationForm;
 use App\Models\User;
 
 new class extends Component {
-    public UserForm $form;
+    public RegistrationForm $form;
 
     public function save()
     {
@@ -29,22 +29,21 @@ new class extends Component {
             </span>
         </div>
         <div class="flex flex-col space-y-7 text-left p-10">
-            <livewire:form.input wire:model="form.name" placeholder='Name' />
+            <x-form.input wire:model="form.name" placeholder='Name' />
             @error('form.name')
                 <span class="error">{{ $message }}</span>
             @enderror
 
-            <livewire:form.input wire:model="form.email" placeholder='E-mail' />
+            <x-form.input wire:model="form.email" placeholder='E-mail' />
             @error('form.email')
                 <span class="error">{{ $message }}</span>
             @enderror
 
-            <livewire:form.input wire:model="form.password" placeholder='Password' type='password' />
+            <x-form.input wire:model="form.password" placeholder='Password' type='password' />
             @error('form.password')
                 <span class="error">{{ $message }}</span>
             @enderror
-            <livewire:form.input wire:model="form.password_confirmation" placeholder='Confirm password'
-                type='password' />
+            <x-form.input wire:model="form.password_confirmation" placeholder='Confirm password' type='password' />
             @error('form.password_confirmation')
                 <span class="error">{{ $message }}</span>
             @enderror
