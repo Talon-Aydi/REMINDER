@@ -1,5 +1,5 @@
-<div class="flex flex-col w-[20rem] h-[40rem] border-3 border-[#d9d9d9] m-auto rounded-sm shadow-2xl inset-shadow-2xl inset-shadow-black">
-            <div class="flex flex-row backdrop text-[#d9d9d9] justify-between p-5 border-b h-[4rem] font-extrabold">
+<div class="flex flex-col w-full border-3 border-[#d9d9d9] rounded-sm shadow-2xl inset-shadow-2xl inset-shadow-black">
+            <div class="flex flex-row text-[#d9d9d9] justify-between p-5 border-b h-[4rem] font-extrabold bg-black">
                 <span class="mt-auto mb-auto">Activity feed</span>
 
                 <span wire:click="openModal" class="mt-auto mb-auto text-[12px] cursor-pointer">
@@ -7,7 +7,7 @@
                 </span>
             </div>
 
-            <div class="flex flex-col h-full w-full overflow-hidden p-5 space-y-3">
+            <div class="flex flex-col h-full w-full overflow-hidden p-5 space-y-3 items-stretch bg-white">
                 @foreach ($activities as $activity)
                     <div wire:click="update({{ $activity->activity_id }})" class="flex flex-row h-[5rem] bg-white rounded-sm">
                         <div class="w-[10px] border bg-blue-300 border-black rounded-l-sm overflow-hidden"></div>
@@ -28,5 +28,4 @@
                     </div>
                 @endforeach
             </div>
-        </div>
 </div>
