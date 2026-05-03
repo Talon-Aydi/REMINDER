@@ -8,6 +8,6 @@ class FriendsList extends Component
 {
     public function render()
     {
-        return view('livewire.user.friends-list');
+        return view('livewire.user.dashboard.friends-list');
     }
 }

@@ -16,7 +16,7 @@
     <div class="flex w-full h-full items-stretch p-3">
         
         <livewire:activity.modal />
-        <div class="flex flex-row w-full h-full space-x-10 items-stretch bg-blue-200 rounded-sm">
+        <div class="flex flex-row w-full h-full space-x-10 items-stretch bg-[#E3735E]-1 rounded-2xl overflow-hidden shadow-2xl backdrop">
             
             <div class="w-[8rem] flex flex-col p-3">
                 <livewire:user.navigation-menu/>
@@ -26,7 +26,7 @@
                 {{ $slot }}
             </div>
 
-            <div class="w-[25rem] flex flex-col">
+            <div class="w-[20rem] flex flex-col">
                 <livewire:user.friends-list/>
             </div>
             

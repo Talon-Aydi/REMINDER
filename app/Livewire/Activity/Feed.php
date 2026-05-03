@@ -5,14 +5,13 @@ namespace App\Livewire\Activity;
 use App\Models\Activity;
 use Livewire\Attributes\On;
 use Livewire\Component;
+use Carbon\Carbon;
 
 class Feed extends Component
 {
     public $showModal = false;
 
     public $activities;
-
-    public $activity_countdown;
 
     public $activityEdit;
 
