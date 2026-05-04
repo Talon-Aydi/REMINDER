@@ -3,9 +3,9 @@
 namespace App\Livewire\Activity;
 
 use App\Models\Activity;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Component;
-use Carbon\Carbon;
 
 class Feed extends Component
 {
@@ -14,14 +14,6 @@ class Feed extends Component
     public $activities;
 
     public $activityEdit;
-
-    #[On('update-activity-feed')]
-    public function render()
-    {
-        $this->activities = Activity::latest()->get();
-
-        return view('livewire.component.activity.feed');
-    }
 
     public function delete($activityId)
     {
@@ -44,5 +36,15 @@ class Feed extends Component
     public function closeModal()
     {
         $this->showModal = false;
+    }
+
+    #[On('update-activity-feed')]
+    public function refreshFeed() {}
+    
+    public function render()
+    {
+        return view('livewire.component.activity.feed', [
+            'activities' => Auth::user()->activities()->latest()->get()
+        ]);
     }
 }

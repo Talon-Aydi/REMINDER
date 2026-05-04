@@ -4,10 +4,6 @@
     <form
         class="flex flex-row rounded-sm overflow-hidden border bg-white w-[25rem]"
     >
-        <div class="border-r w-[1rem] bg-blue-300">
-            {{ $activityColor ?? '' }}
-        </div>
-
         <div class="flex flex-col w-full">
             <div class="flex p-3 border-b justify-between">{{ $header }}</div>
 

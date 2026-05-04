@@ -10,9 +10,6 @@ class ActivityForm extends Form
 {
     public ?Activity $activity = null;
 
-    #[Validate('required')]
-    public $activity_user_id = 1;
-
     #[Validate('required|min:5')]
     public $activity_title = '';
 
@@ -25,8 +22,6 @@ class ActivityForm extends Form
     public function setActivity(Activity $activity)
     {
         $this->activity = $activity;
-
-        $this->activity_user_id = 1;
         $this->activity_title = $activity->activity_title;
         $this->activity_description = $activity->activity_description;
         $this->activity_deadline = $activity->activity_deadline;

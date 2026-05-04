@@ -11,6 +11,8 @@ class Modal extends Component
 {
     public ActivityForm $form;
 
+    public User $user;
+
     public bool $isEdit = false;
 
     public $activity;
@@ -42,6 +44,7 @@ class Modal extends Component
     public function save()
     {
         $data = $this->form->validate();
+        $data['activity_user_id'] = auth()->id();
         if ($this->activity && $this->activity->exists) {
             $this->activity->update($data);
         } else {
@@ -54,6 +57,8 @@ class Modal extends Component
 
     public function render()
     {
-        return view('livewire.component.activity.modal');
+        return view('livewire.component.activity.modal', [
+            'user' => auth()->user(),
+        ]);
     }
 }
