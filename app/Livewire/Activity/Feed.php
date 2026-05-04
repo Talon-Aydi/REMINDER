@@ -11,8 +11,6 @@ class Feed extends Component
 {
     public $showModal = false;
 
-    public $activities;
-
     public $activityEdit;
 
     public function delete($activityId)
@@ -42,9 +40,10 @@ class Feed extends Component
     public function refreshFeed() {}
     
     public function render()
-    {
+    {   
+        $userActivities = Activity::where('activity_user_id', Auth::user()->id)->get();
         return view('livewire.component.activity.feed', [
-            'activities' => Auth::user()->activities()->latest()->get()
+            'activities' => $userActivities
         ]);
     }
 }
