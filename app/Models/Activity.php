@@ -10,6 +10,10 @@ class Activity extends Model
 
     protected $primaryKey = 'activity_id';
 
+    protected $casts = [
+        'activity_deadline' => 'datetime',
+    ];
+
     protected $fillable = [
         'activity_title',
         'activity_description',
