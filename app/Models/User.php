@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany; 
 
 #[Fillable(['name', 'email', 'password', 'bio'])]
 #[Hidden(['password', 'remember_token'])]
@@ -17,6 +18,14 @@ class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
+
+    public function friends(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'friends', 'user_id', 'friend_id')
+            ->using(Friend::class) 
+            ->withPivot('status', 'is_best_friend')
+            ->withTimestamps();
+    }
 
     /**
      * Get the attributes that should be cast.
