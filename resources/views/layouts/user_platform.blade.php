@@ -22,7 +22,7 @@
 
             <div class="flex-1 h-full overflow-y-auto p-3">{{ $slot }}</div>
 
-            <div class="w-[20rem] flex flex-col">
+            <div class="w-[20%] flex flex-col">
                 <livewire:user.friends-list />
             </div>
         </div>

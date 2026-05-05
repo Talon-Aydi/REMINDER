@@ -19,7 +19,7 @@ new class extends Component {
 
 <div>
     @if ($show)
-        <x-modals.activity-modal>
+        <livewire:activity-modal>
             <x-slot:header>
                 <span> Oops! </span>
                 <span
@@ -38,6 +38,6 @@ new class extends Component {
             <x-slot:footer>
                 La la land
             </x-slot:footer>
-        </x-modals.activity-modal>
+        </livewire:activity-modal>
     @endif
 </div>
