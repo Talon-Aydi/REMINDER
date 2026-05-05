@@ -2,7 +2,6 @@
 
 namespace App\Livewire\User;
 
-use App\Models\User;
 use Livewire\Component;
 
 class Dashboard extends Component

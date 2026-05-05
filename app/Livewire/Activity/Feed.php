@@ -38,12 +38,13 @@ class Feed extends Component
 
     #[On('update-activity-feed')]
     public function refreshFeed() {}
-    
+
     public function render()
-    {   
+    {
         $userActivities = Activity::where('activity_user_id', Auth::user()->id)->get();
+
         return view('livewire.component.activity.feed', [
-            'activities' => $userActivities
+            'activities' => $userActivities,
         ]);
     }
 }

@@ -17,7 +17,7 @@
     <div
         class="flex flex-col h-full w-full overflow-hidden p-5 space-y-3 items-stretch bg-white rounded-xl"
     >
-        @if($activities)
+        @if ($activities)
             @foreach ($activities as $activity)
                 <div
                     wire:click="update({{ $activity->activity_id }})"
